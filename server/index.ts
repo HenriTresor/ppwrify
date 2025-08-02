@@ -2,9 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth.js';
-import packagingRoutes from './routes/packaging.js';
-import productsRoutes from './routes/products.js';
+import authRoutes from './routes/auth';
+import packagingRoutes from './routes/packaging';
+import productsRoutes from './routes/products';
 
 dotenv.config();
 
