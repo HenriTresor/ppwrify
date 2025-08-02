@@ -41,28 +41,14 @@ const PackagingHeader: React.FC<PackagingHeaderProps> = ({
   return (
     <div className="bg-white border-b border-gray-200">
       {/* Page Header */}
-      <div className="px-6 py-5">
-        <div className="flex items-center justify-between">
-          <div className="min-w-80 flex-1">
-            <h1 className="text-2xl font-semibold text-gray-900">{t('packagingTitle')}</h1>
+      <div className="px-4 md:px-6 py-5">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+          <div className="flex-1 lg:min-w-80">
+            <h1 className="text-xl md:text-2xl font-semibold text-gray-900">{t('packagingTitle')}</h1>
           </div>
-          <div className="flex items-center space-x-3">
-            <button 
-              onClick={onExport}
-              className="inline-flex items-center px-3.5 py-2.5 border border-gray-300 shadow-sm text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              {t('export')}
-            </button>
-            <button 
-              onClick={onCreateNew}
-              className="inline-flex items-center px-3.5 py-2.5 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              {t('newPackaging')}
-            </button>
-          </div>
-          
-          {/* Search */}
-          <div className="min-w-48 max-w-80 flex-1 ml-4">
+
+          {/* Search - Mobile first, then desktop positioning */}
+          <div className="w-full lg:max-w-80 lg:min-w-48 lg:ml-4 order-3 lg:order-2">
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-gray-400" />
@@ -75,11 +61,29 @@ const PackagingHeader: React.FC<PackagingHeaderProps> = ({
                 placeholder={t('search')}
               />
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                <kbd className="inline-flex items-center px-2 py-0.5 border border-gray-200 rounded text-xs font-medium text-gray-500">
+                <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 border border-gray-200 rounded text-xs font-medium text-gray-500">
                   ⌘K
                 </kbd>
               </div>
             </div>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex items-center space-x-3 order-2 lg:order-3">
+            <button
+              onClick={onExport}
+              className="inline-flex items-center px-3 md:px-3.5 py-2 md:py-2.5 border border-gray-300 shadow-sm text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <span className="hidden sm:inline">{t('export')}</span>
+              <Download className="sm:hidden h-5 w-5" />
+            </button>
+            <button
+              onClick={onCreateNew}
+              className="inline-flex items-center px-3 md:px-3.5 py-2 md:py-2.5 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <Plus className="sm:hidden h-5 w-5" />
+              <span className="hidden sm:inline">{t('newPackaging')}</span>
+            </button>
           </div>
         </div>
       </div>
