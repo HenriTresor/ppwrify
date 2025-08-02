@@ -11,9 +11,14 @@ import {
   ChevronUp,
   ChevronDown as ChevronSelector,
   Globe,
+  X,
 } from "lucide-react";
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onClose?: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   const { t, i18n } = useTranslation();
   const { user, logout } = useAuth();
   const location = useLocation();
