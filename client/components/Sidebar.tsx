@@ -76,8 +76,18 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   return (
     <div className="flex flex-col w-72 bg-white border-r border-gray-200 h-full">
       {/* Header */}
-      <div className="flex flex-col gap-5 p-5">
+      <div className="flex items-center justify-between p-5 lg:justify-start">
         <h1 className="text-2xl font-bold text-black">PPWRify</h1>
+        {/* Close button for mobile */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 lg:hidden"
+          >
+            <span className="sr-only">Close sidebar</span>
+            <X className="h-6 w-6" />
+          </button>
+        )}
       </div>
 
       {/* Navigation */}
