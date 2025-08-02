@@ -32,7 +32,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
 
   const countries = [
     { code: 'DE', name: 'Olivia', flag: '🇩🇪' },
-    { code: 'ES', name: 'Phoenix', flag: '🇪🇸' }
+    { code: 'ES', name: 'Phoenix', flag: '���🇸' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -103,10 +103,10 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
           </div>
 
           {/* Form Fields */}
-          <div className="flex-1 p-6 bg-white overflow-auto">
+          <div className="flex-1 p-4 md:p-6 bg-white overflow-auto">
             {activeTab === 'information' && (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                   {/* Designation */}
                   <div className="flex flex-col space-y-1.5">
                     <label className="text-sm font-medium text-gray-700">{t('designation')}</label>
@@ -115,7 +115,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                         type="text"
                         value={formData.designation}
                         onChange={(e) => setFormData(prev => ({ ...prev, designation: e.target.value }))}
-                        className="block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="block w-full px-3 md:px-3.5 py-2 md:py-2.5 border border-gray-300 rounded-lg text-sm md:text-base text-gray-900 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
                       />
                       <HelpCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                     </div>
@@ -129,7 +129,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                         type="text"
                         value={formData.internalId}
                         onChange={(e) => setFormData(prev => ({ ...prev, internalId: e.target.value }))}
-                        className="block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="block w-full px-3 md:px-3.5 py-2 md:py-2.5 border border-gray-300 rounded-lg text-sm md:text-base text-gray-900 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
                       />
                       <HelpCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                     </div>
@@ -143,7 +143,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                         type="text"
                         value={formData.gtinArticleNumber}
                         onChange={(e) => setFormData(prev => ({ ...prev, gtinArticleNumber: e.target.value }))}
-                        className="block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-base text-gray-900 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
+                        className="block w-full px-3 md:px-3.5 py-2 md:py-2.5 border border-gray-300 rounded-lg text-sm md:text-base text-gray-900 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500"
                       />
                       <HelpCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                     </div>
@@ -157,10 +157,10 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                     </div>
                     <div className="relative">
                       <div className="flex items-center px-3 py-2 border border-gray-300 rounded-lg bg-white">
-                        <Search className="w-5 h-5 text-gray-400 mr-2" />
-                        <div className="flex items-center space-x-2 flex-1">
+                        <Search className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
+                        <div className="flex items-center space-x-2 flex-1 min-w-0 overflow-x-auto">
                           {formData.countryOfAssembly.map((country: string) => (
-                            <div key={country} className="inline-flex items-center px-2 py-1 bg-white border border-gray-300 rounded text-sm">
+                            <div key={country} className="inline-flex items-center px-2 py-1 bg-white border border-gray-300 rounded text-sm whitespace-nowrap">
                               <span className="mr-2">🇩🇪</span>
                               <span>Olivia</span>
                               <button
@@ -185,9 +185,9 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                     </div>
                     <div className="relative">
                       <div className="flex items-center px-3 py-2 border border-gray-300 rounded-lg bg-white">
-                        <Search className="w-5 h-5 text-gray-400 mr-2" />
-                        <div className="flex items-center space-x-2 flex-1">
-                          <div className="inline-flex items-center px-2 py-1 bg-white border border-gray-300 rounded text-sm">
+                        <Search className="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" />
+                        <div className="flex items-center space-x-2 flex-1 min-w-0 overflow-x-auto">
+                          <div className="inline-flex items-center px-2 py-1 bg-white border border-gray-300 rounded text-sm whitespace-nowrap">
                             <span className="mr-2">🇩🇪</span>
                             <span>Olivia</span>
                             <button
@@ -197,7 +197,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                               <X className="w-3 h-3 text-gray-400" />
                             </button>
                           </div>
-                          <div className="inline-flex items-center px-2 py-1 bg-white border border-gray-300 rounded text-sm">
+                          <div className="inline-flex items-center px-2 py-1 bg-white border border-gray-300 rounded text-sm whitespace-nowrap">
                             <span className="mr-2">🇪🇸</span>
                             <span>Phoenix</span>
                             <button
