@@ -89,13 +89,13 @@ const PackagingHeader: React.FC<PackagingHeaderProps> = ({
       </div>
 
       {/* Tabs */}
-      <div className="px-6 border-b border-gray-200">
-        <nav className="flex space-x-6" aria-label="Tabs">
+      <div className="px-4 md:px-6 border-b border-gray-200">
+        <nav className="flex space-x-4 md:space-x-6 overflow-x-auto" aria-label="Tabs">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 ${
+              className={`py-2 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 whitespace-nowrap ${
                 activeTab === tab.id
                   ? 'border-indigo-500 text-indigo-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
