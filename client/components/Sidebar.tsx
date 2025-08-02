@@ -130,6 +130,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
+                            onClick={() => onClose && onClose()}
                             className={`flex items-center px-3 py-2 text-base font-semibold rounded-md ${
                               subItem.current
                                 ? "bg-gray-50 text-gray-900"
