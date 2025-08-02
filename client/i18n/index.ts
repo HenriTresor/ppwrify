@@ -5,15 +5,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   en: {
     translation: {
-      // Navigation
       dashboard: 'Dashboard',
       products: 'Products',
       packaging: 'Packaging',
       packagingManagement: 'Packaging Management',
       categories: 'Categories',
       reporting: 'Reporting',
-      
-      // Common
       search: 'Search',
       save: 'Save',
       cancel: 'Cancel',
@@ -25,16 +22,12 @@ const resources = {
       back: 'Back',
       next: 'Next',
       previous: 'Previous',
-      
-      // Login
       login: 'Login',
       logout: 'Logout',
       email: 'Email',
       password: 'Password',
       loginTitle: 'Sign in to PPWRify',
       loginButton: 'Sign In',
-      
-      // Packaging Management
       packagingTitle: 'Packaging Management',
       newPackaging: 'Create New Packaging',
       export: 'Export',
@@ -54,8 +47,6 @@ const resources = {
       lastModifiedBy: 'Last Modified By',
       removeAllFilters: 'Remove All Filters',
       view: 'View',
-      
-      // Packaging Form
       information: 'Information',
       components: 'Components',
       documents: 'Documents',
@@ -68,14 +59,10 @@ const resources = {
       assignProductsDescription: 'Assign different products to the packaging.',
       addProduct: 'Add Product',
       strawberryYoghurt: 'Strawberry Yogurt',
-      
-      // Status
       statusActive: 'Active',
       statusDraft: 'Draft',
       statusDeactivated: 'Deactivated',
       available: 'Available',
-      
-      // Levels
       levelA: 'Level A',
       levelB: 'Level B',
       levelC: 'Level C',
@@ -84,15 +71,12 @@ const resources = {
   },
   de: {
     translation: {
-      // Navigation
       dashboard: 'Dashboard',
       products: 'Produkte',
       packaging: 'Verpackungen',
       packagingManagement: 'Verpackungsverwaltung',
       categories: 'Kategorien',
       reporting: 'Reporting',
-      
-      // Common
       search: 'Suche',
       save: 'Speichern',
       cancel: 'Abbrechen',

@@ -164,13 +164,11 @@ export function createServer() {
   return app;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
   const app = createServer();
   const PORT = process.env.PORT || 5000;
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-}
 
 export default createServer();

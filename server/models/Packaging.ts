@@ -61,4 +61,6 @@ const packagingSchema = new mongoose.Schema({
   timestamps: true
 });
 
-export default mongoose.model('Packaging', packagingSchema);
+const Packaging = mongoose.models.Packaging || mongoose.model('Packaging', packagingSchema)
+
+export default Packaging

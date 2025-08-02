@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/**/*.{ts,tsx}"],
+  content: ["./**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -57,7 +57,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // PPWRify design system colors
         'ppwr-border-secondary': '#E9EAEB',
         'ppwr-bg-primary': '#FFF',
         'ppwr-bg-active': '#FAFAFA',

@@ -11,25 +11,23 @@
     ]
   },
   "scripts": {
-    "dev": "vite",
-    "dev:backend": "nodemon server/index.ts",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "vite build",
-    "build:server": "vite build --config vite.config.server.ts",
-    "start": "node dist/server/node-build.mjs",
-    "test": "vitest --run",
-    "format.fix": "prettier --write .",
-    "typecheck": "tsc"
-  },
+  "dev": "vite",
+  "dev:backend": "nodemon server/index.ts",
+  "dev:vercel": "vercel dev",
+  "build": "npm run build:client && npm run build:server",
+  "build:client": "vite build",
+  "build:server": "tsc --project tsconfig.server.json",
+  "build:vercel": "npm run build:client && npm run build:server",
+  "start": "node dist/server/node-build.mjs",
+  "deploy": "vercel --prod",
+  "test": "vitest --run",
+  "format.fix": "prettier --write .",
+  "typecheck": "tsc"
+},
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^17.2.0",
-    "express": "^4.18.2",
     "i18next": "^23.7.16",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3",
     "react-i18next": "^13.5.0",
     "zod": "^3.23.8"
   },
@@ -67,11 +65,7 @@
     "@swc/core": "^1.11.24",
     "@tailwindcss/typography": "^0.5.15",
     "@tanstack/react-query": "^5.56.2",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/node": "^22.5.5",
+  
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/three": "^0.176.0",
@@ -107,7 +101,11 @@
     "tsx": "^4.7.0",
     "typescript": "^5.5.3",
     "vaul": "^0.9.3",
+    "vercel": "^44.6.6",
     "vite": "^6.2.2",
     "vitest": "^3.1.4"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
