@@ -11,9 +11,14 @@ import {
   ChevronUp,
   ChevronDown as ChevronSelector,
   Globe,
+  X,
 } from "lucide-react";
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onClose?: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   const { t, i18n } = useTranslation();
   const { user, logout } = useAuth();
   const location = useLocation();
@@ -71,8 +76,18 @@ const Sidebar: React.FC = () => {
   return (
     <div className="flex flex-col w-72 bg-white border-r border-gray-200 h-full">
       {/* Header */}
-      <div className="flex flex-col gap-5 p-5">
+      <div className="flex items-center justify-between p-5 lg:justify-start">
         <h1 className="text-2xl font-bold text-black">PPWRify</h1>
+        {/* Close button for mobile */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 lg:hidden"
+          >
+            <span className="sr-only">Close sidebar</span>
+            <X className="h-6 w-6" />
+          </button>
+        )}
       </div>
 
       {/* Navigation */}
@@ -115,6 +130,7 @@ const Sidebar: React.FC = () => {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
+                            onClick={() => onClose && onClose()}
                             className={`flex items-center px-3 py-2 text-base font-semibold rounded-md ${
                               subItem.current
                                 ? "bg-gray-50 text-gray-900"
@@ -130,6 +146,7 @@ const Sidebar: React.FC = () => {
                 ) : (
                   <Link
                     to={item.href}
+                    onClick={() => onClose && onClose()}
                     className={`flex items-center justify-between p-3 text-gray-700 rounded-md hover:bg-gray-50 ${
                       isActive ? "bg-gray-50 text-gray-900" : ""
                     }`}

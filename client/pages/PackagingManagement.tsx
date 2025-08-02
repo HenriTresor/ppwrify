@@ -110,14 +110,14 @@ const PackagingManagement: React.FC = () => {
   return (
     <div className="flex flex-col h-full">
       {/* Top Navigation */}
-      <div className="flex items-center h-13 px-2 border-b border-gray-200 bg-white">
+      <div className="flex items-center h-13 px-2 md:px-4 border-b border-gray-200 bg-white">
         <div className="flex items-center space-x-2 border-r border-gray-200 pr-2 mr-4">
           <button className="p-2 hover:bg-gray-100 rounded-lg">
             <LayoutGrid className="w-5 h-5 text-gray-400" />
           </button>
         </div>
         <div className="flex items-center space-x-3">
-          <span className="text-sm font-medium text-gray-500">{t('packagingManagement')}</span>
+          <span className="text-sm font-medium text-gray-500 truncate">{t('packagingManagement')}</span>
         </div>
       </div>
 
@@ -133,7 +133,7 @@ const PackagingManagement: React.FC = () => {
       />
 
       {/* Main Content */}
-      <div className="flex-1 p-6 bg-white overflow-auto">
+      <div className="flex-1 p-4 md:p-6 bg-white overflow-auto">
         <PackagingTable
           items={items}
           onItemClick={handleItemClick}
