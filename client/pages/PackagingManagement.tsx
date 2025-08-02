@@ -133,7 +133,7 @@ const PackagingManagement: React.FC = () => {
       />
 
       {/* Main Content */}
-      <div className="flex-1 p-6 bg-white overflow-auto">
+      <div className="flex-1 p-4 md:p-6 bg-white overflow-auto">
         <PackagingTable
           items={items}
           onItemClick={handleItemClick}
