@@ -1,13 +1,14 @@
 {
-"compilerOptions": {
+  "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",               // or "NodeNext" for best ESM support
-    "moduleResolution": "node",       // or "nodenext"
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "outDir": "dist",
     "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true
-}
+  },
+  "include": ["./**/*"]
 }
