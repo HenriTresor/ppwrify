@@ -32,7 +32,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
 
   const countries = [
     { code: 'DE', name: 'Olivia', flag: '🇩🇪' },
-    { code: 'ES', name: 'Phoenix', flag: '���🇸' }
+    { code: 'ES', name: 'Phoenix', flag: '🇪🇸' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -218,8 +218,8 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
         </div>
 
         {/* Right Column - Product Assignment */}
-        <div className="w-96 border-l border-gray-200 bg-gray-50 flex flex-col">
-          <div className="p-6">
+        <div className="w-full xl:w-96 xl:border-l border-t xl:border-t-0 border-gray-200 bg-gray-50 flex flex-col xl:flex-shrink-0">
+          <div className="p-4 md:p-6">
             <div className="space-y-5">
               {/* Header */}
               <div>
@@ -238,7 +238,7 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
                   placeholder={t('search')}
                 />
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <kbd className="inline-flex items-center px-2 py-0.5 border border-gray-200 rounded text-xs font-medium text-gray-500">
+                  <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 border border-gray-200 rounded text-xs font-medium text-gray-500">
                     ⌘K
                   </kbd>
                 </div>
@@ -248,12 +248,12 @@ const PackagingForm: React.FC<PackagingFormProps> = ({ initialData, onSave, onCa
               <div className="space-y-3">
                 {formData.assignedProducts.map((product: any) => (
                   <div key={product.id} className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl">
-                    <div className="flex-1">
-                      <h4 className="text-sm font-medium text-gray-700">{product.name}</h4>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-gray-700 truncate">{product.name}</h4>
                       <p className="text-sm text-gray-500">{product.productId}</p>
                     </div>
-                    <div className="flex items-center space-x-1.5">
-                      <button className="text-sm font-medium text-gray-600 hover:text-gray-900">
+                    <div className="flex items-center space-x-1.5 flex-shrink-0">
+                      <button className="text-sm font-medium text-gray-600 hover:text-gray-900 hidden sm:block">
                         {t('open')}
                       </button>
                       <button
