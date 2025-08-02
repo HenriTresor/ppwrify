@@ -10,15 +10,11 @@
       "dist/server/**/*.js"
     ]
   },
-  "scripts": {
+"scripts": {
   "dev": "vite",
-  "dev:backend": "nodemon server/index.ts",
-  "dev:vercel": "vercel dev",
-  "build": "npm run build:client && npm run build:server",
-  "build:client": "vite build",
-  "build:server": "tsc --project tsconfig.server.json",
-  "build:vercel": "npm run build:client && npm run build:server",
-  "start": "node dist/server/node-build.mjs",
+  "build": "vite build",
+  "build:vercel": "vite build",
+  "start": "vite preview",
   "deploy": "vercel --prod",
   "test": "vitest --run",
   "format.fix": "prettier --write .",
@@ -104,8 +100,5 @@
     "vercel": "^44.6.6",
     "vite": "^6.2.2",
     "vitest": "^3.1.4"
-  },
-  "engines": {
-    "node": "18.x"
   }
 }
