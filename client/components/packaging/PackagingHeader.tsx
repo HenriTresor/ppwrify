@@ -117,30 +117,37 @@ const PackagingHeader: React.FC<PackagingHeaderProps> = ({
       </div>
 
       {/* Filters */}
-      <div className="px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            {filters.map((filter) => (
+      <div className="px-4 md:px-6 py-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
+          <div className="flex items-center space-x-2 overflow-x-auto">
+            {filters.slice(0, 3).map((filter) => (
               <button
                 key={filter}
-                className="inline-flex items-center px-3.5 py-2 border border-dashed border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50"
+                className="inline-flex items-center px-3 md:px-3.5 py-2 border border-dashed border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 whitespace-nowrap"
               >
                 <Plus className="w-3 h-3 mr-1.5" />
-                {filter}
+                <span className="hidden sm:inline">{filter}</span>
               </button>
             ))}
+            {filters.length > 3 && (
+              <button className="inline-flex items-center px-3 py-2 border border-dashed border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50">
+                <Plus className="w-3 h-3 mr-1.5" />
+                +{filters.length - 3}
+              </button>
+            )}
             <button
               onClick={onClearFilters}
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900"
+              className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 whitespace-nowrap"
             >
-              <X className="w-5 h-5 mr-2" />
-              {t('removeAllFilters')}
+              <X className="w-4 h-4 mr-1 md:w-5 md:h-5 md:mr-2" />
+              <span className="hidden sm:inline">{t('removeAllFilters')}</span>
+              <span className="sm:hidden">Clear</span>
             </button>
           </div>
-          <button className="inline-flex items-center px-3.5 py-2.5 border border-gray-300 shadow-sm text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50">
-            <Columns3 className="w-5 h-5 mr-2" />
-            {t('view')}
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 20 20">
+          <button className="inline-flex items-center px-3 md:px-3.5 py-2 md:py-2.5 border border-gray-300 shadow-sm text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50">
+            <Columns3 className="w-4 h-4 mr-1 md:w-5 md:h-5 md:mr-2" />
+            <span className="hidden sm:inline">{t('view')}</span>
+            <svg className="ml-1 md:ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 20 20">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 10l3 3 3-3m0-6l-3 3-3-3" />
             </svg>
           </button>
