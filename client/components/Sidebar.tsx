@@ -146,6 +146,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
                 ) : (
                   <Link
                     to={item.href}
+                    onClick={() => onClose && onClose()}
                     className={`flex items-center justify-between p-3 text-gray-700 rounded-md hover:bg-gray-50 ${
                       isActive ? "bg-gray-50 text-gray-900" : ""
                     }`}
